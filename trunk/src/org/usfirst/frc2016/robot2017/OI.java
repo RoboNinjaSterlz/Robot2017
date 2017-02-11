@@ -77,9 +77,9 @@ public class OI {
         operatorJoy = new Joystick(2);
         
         wheelStop = new JoystickButton(operatorJoy, 4);
-        wheelStop.whenPressed(new StopWheel());
+        wheelStop.whenPressed(new HighGoalStop());
         wheelStart = new JoystickButton(operatorJoy, 6);
-        wheelStart.whenPressed(new RunWheel());
+        wheelStart.whenPressed(new HighGoalPreset0());
         elevatorLowButton = new JoystickButton(operatorJoy, 9);
         elevatorLowButton.whenPressed(new ElevatorLow());
         elevatorHighButton = new JoystickButton(operatorJoy, 7);
@@ -111,8 +111,8 @@ public class OI {
         SmartDashboard.putData("DriveStraight", new DriveStraight());
         SmartDashboard.putData("WinchStop", new WinchStop());
         SmartDashboard.putData("JoystickSlide", new JoystickSlide());
-        SmartDashboard.putData("RunWheel", new RunWheel());
-        SmartDashboard.putData("StopWheel", new StopWheel());
+        SmartDashboard.putData("RunWheel", new HighGoalPreset0());
+        SmartDashboard.putData("StopWheel", new HighGoalStop());
         SmartDashboard.putData("SpeedSetup", new SpeedSetup());
         SmartDashboard.putData("Command 1", new Command1());
 

@@ -46,15 +46,15 @@ public class RobotPrefs {
 		Robot.gearElevator.presetPositions[Robot.gearElevator.HIGH] = 
 				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION2);
 
-		Robot.wheelDrive.presetSpeed[0] = 
-				prefs.getDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[0], Defaults.WHEEL_SPEED0);
-		Robot.wheelDrive.presetSpeed[1] = 
-				prefs.getDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[1], Defaults.WHEEL_SPEED1);
+		Robot.highGoalShooter.presetSpeed[0] = 
+				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[0], Defaults.WHEEL_SPEED0);
+		Robot.highGoalShooter.presetSpeed[1] = 
+				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[1], Defaults.WHEEL_SPEED1);
 /*
- 		Robot.wheelDrive.presetSpeed[2] = 
-				prefs.getDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[2], Defaults.WHEEL_SPEED2);
-		Robot.wheelDrive.presetSpeed[3] = 
-				prefs.getDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[3], Defaults.WHEEL_SPEED3);
+ 		Robot.highGoalShooter.presetSpeed[2] = 
+				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[2], Defaults.WHEEL_SPEED2);
+		Robot.highGoalShooter.presetSpeed[3] = 
+				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[3], Defaults.WHEEL_SPEED3);
 */
 	}
 
@@ -71,18 +71,18 @@ public class RobotPrefs {
 			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION2);
 		}
 
-		if (!prefs.containsKey("Wheel "+Robot.wheelDrive.WheelSpeedLabels[0])) {
-			prefs.putDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[0], Defaults.WHEEL_SPEED0);
+		if (!prefs.containsKey("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[0])) {
+			prefs.putDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[0], Defaults.WHEEL_SPEED0);
 		}
-		if (!prefs.containsKey("Wheel "+Robot.wheelDrive.WheelSpeedLabels[1])) {
-			prefs.putDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[1], Defaults.WHEEL_SPEED1);
+		if (!prefs.containsKey("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[1])) {
+			prefs.putDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[1], Defaults.WHEEL_SPEED1);
 		}
 /*
-		if (!prefs.containsKey("Wheel "+Robot.wheelDrive.WheelSpeedLabels[2])) {
-			prefs.putDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[2], Defaults.WHEEL_SPEED2);
+		if (!prefs.containsKey("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[2])) {
+			prefs.putDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[2], Defaults.WHEEL_SPEED2);
 		}
-		if (!prefs.containsKey("Wheel "+Robot.wheelDrive.WheelSpeedLabels[3])) {
-			prefs.putDouble("Wheel "+Robot.wheelDrive.WheelSpeedLabels[3], Defaults.WHEEL_SPEED3);
+		if (!prefs.containsKey("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[3])) {
+			prefs.putDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[3], Defaults.WHEEL_SPEED3);
 		}
  */
 		
