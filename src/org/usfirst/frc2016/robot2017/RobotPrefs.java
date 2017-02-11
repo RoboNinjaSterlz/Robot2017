@@ -56,6 +56,8 @@ public class RobotPrefs {
 		Robot.highGoalShooter.presetSpeed[3] = 
 				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[3], Defaults.WHEEL_SPEED3);
 */
+		Robot.drivetrain.drivetrainVoltageLimit = prefs.getDouble("drivetrainVoltageLimit", Defaults.DRIVETRAIN_VOLTAGE_LIMIT_DEFAULT);
+        Robot.drivetrain.setMax();
 	}
 
 
