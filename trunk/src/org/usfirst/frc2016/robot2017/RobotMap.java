@@ -51,7 +51,8 @@ public class RobotMap {
     public static Encoder drivetrainRightDriveEncoder;
     public static Solenoid drivetrainShiftSolenoid;
     public static Compressor drivetrainCompressor;
-    public static CANTalon wheelDrivewheelTalon;
+    public static CANTalon highGoalShooterHighGoalTalon1;
+    public static CANTalon highGoalShooterHighGoalTalon2;
     public static Servo servoTestServo1;
     public static SpeedController winchWinchSpark;
     public static CANTalon gearElevatorGearElevatorTalon;
@@ -102,8 +103,11 @@ public class RobotMap {
         drivetrainCompressor = new Compressor(0);
         
         
-        wheelDrivewheelTalon = new CANTalon(2);
-        LiveWindow.addActuator("WheelDrive", "wheelTalon", wheelDrivewheelTalon);
+        highGoalShooterHighGoalTalon1 = new CANTalon(1);
+        LiveWindow.addActuator("HighGoalShooter", "HighGoalTalon1", highGoalShooterHighGoalTalon1);
+        
+        highGoalShooterHighGoalTalon2 = new CANTalon(2);
+        LiveWindow.addActuator("HighGoalShooter", "HighGoalTalon2", highGoalShooterHighGoalTalon2);
         
         servoTestServo1 = new Servo(8);
         LiveWindow.addActuator("ServoTest", "Servo 1", servoTestServo1);
@@ -114,7 +118,7 @@ public class RobotMap {
         gearElevatorGearElevatorTalon = new CANTalon(0);
         LiveWindow.addActuator("GearElevator", "GearElevatorTalon", gearElevatorGearElevatorTalon);
         
-        gearSlideGearSlideTalon = new CANTalon(1);
+        gearSlideGearSlideTalon = new CANTalon(3);
         LiveWindow.addActuator("GearSlide", "GearSlideTalon", gearSlideGearSlideTalon);
         
         gearSlideSlideCenterSensor = new DigitalInput(8);
