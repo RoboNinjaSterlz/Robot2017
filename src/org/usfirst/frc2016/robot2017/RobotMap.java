@@ -58,6 +58,7 @@ public class RobotMap {
     public static CANTalon gearElevatorGearElevatorTalon;
     public static CANTalon gearSlideGearSlideTalon;
     public static DigitalInput gearSlideSlideCenterSensor;
+    public static Solenoid gearGrabberGearGrabSolenoid;
     public static SpeedController floorBeltFloorSpark;
     public static SpeedController transBeltTransSpark;
     public static SpeedController lowGoalShooterLowGoalSpark;
@@ -123,6 +124,9 @@ public class RobotMap {
         
         gearSlideSlideCenterSensor = new DigitalInput(8);
         LiveWindow.addSensor("GearSlide", "SlideCenterSensor", gearSlideSlideCenterSensor);
+        
+        gearGrabberGearGrabSolenoid = new Solenoid(0, 1);
+        LiveWindow.addActuator("GearGrabber", "GearGrabSolenoid", gearGrabberGearGrabSolenoid);
         
         floorBeltFloorSpark = new Spark(3);
         LiveWindow.addActuator("FloorBelt", "FloorSpark", (Spark) floorBeltFloorSpark);
