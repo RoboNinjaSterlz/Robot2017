@@ -223,25 +223,12 @@ public class Robot extends IterativeRobot {
     	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! For testing only
 		robotIsCalibrated = true;
 		robotPrefs.periodic();
-/*    	if (oi.operatorJoy.getRawButton(1)) {
-    		robotIsCalibrated = true;
-    	}
-    	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		robotPrefs.periodic();
-		//highGoalShooter.periodic();
 		if (!robotIsCalibrated) {
-			//calibrateRobot();
-			if (calTimerExpired) {
-		    	Scheduler.getInstance().run();
-			}
+			calibrateRobot();
 		}
-		else {
-*/
 		Scheduler.getInstance().run();
-//		}
         gearElevator.periodic();
 		//gyro.periodic();
-        //highGoalShooter.setup.Periodic();
 		updateDashboard();
     }
     /**
@@ -266,9 +253,6 @@ public class Robot extends IterativeRobot {
 		}
 		else {
 			calTimerExpired = true;
-		}
-		if (!gearElevator.isCalibrated()) {
-			gearElevator.doCalibrate();
 		}
 		if (gearElevator.isCalibrated()) {
 			robotIsCalibrated = true;
