@@ -86,10 +86,9 @@ public class Robot extends IterativeRobot {
     public static Drivetrain drivetrain;
     public static Gyro gyro;
     public static HighGoalShooter highGoalShooter;
-    public static ServoTest servoTest;
+    public static GearSlide gearSlide;
     public static Winch winch;
     public static GearElevator gearElevator;
-    public static GearSlide gearSlide;
     public static GearGrabber gearGrabber;
     public static FloorBelt floorBelt;
     public static TransBelt transBelt;
@@ -127,10 +126,9 @@ public class Robot extends IterativeRobot {
         drivetrain = new Drivetrain();
         gyro = new Gyro();
         highGoalShooter = new HighGoalShooter();
-        servoTest = new ServoTest();
+        gearSlide = new GearSlide();
         winch = new Winch();
         gearElevator = new GearElevator();
-        gearSlide = new GearSlide();
         gearGrabber = new GearGrabber();
         floorBelt = new FloorBelt();
         transBelt = new TransBelt();
@@ -242,7 +240,6 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 //		}
         gearElevator.periodic();
-        gearSlide.periodic();
 		//gyro.periodic();
         //highGoalShooter.setup.Periodic();
 		updateDashboard();
@@ -273,10 +270,7 @@ public class Robot extends IterativeRobot {
 		if (!gearElevator.isCalibrated()) {
 			gearElevator.doCalibrate();
 		}
-		if (!gearSlide.isCalibrated()) {
-			gearSlide.doCalibrate();
-		}
-		if (gearSlide.isCalibrated() && gearElevator.isCalibrated()) {
+		if (gearElevator.isCalibrated()) {
 			robotIsCalibrated = true;
 		}
     }
@@ -287,7 +281,6 @@ public class Robot extends IterativeRobot {
 
     private void updateDashboard() {
     	SmartDashboard.putBoolean("Elevator Calibrated", gearElevator.isCalibrated());
-   		SmartDashboard.putBoolean("Slide Calibrated", gearSlide.isCalibrated());
     	SmartDashboard.putBoolean("Robot Calibrated",robotIsCalibrated);
     	//SmartDashboard.putNumber("PD Port 4 Current", pdPanel.getCurrent(4));
 		SmartDashboard.putNumber("WSpeed",highGoalShooter.speed );

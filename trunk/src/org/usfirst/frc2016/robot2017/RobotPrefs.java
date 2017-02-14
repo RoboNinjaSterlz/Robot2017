@@ -41,11 +41,18 @@ public class RobotPrefs {
 		 * instead, it is set once by robotbuilder generated code.
 		 *  The call to setMax will update the limit.
 		 */
+
+		//Gear Elevator
 		Robot.gearElevator.presetPositions[Robot.gearElevator.LOW] = 
 				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW], Defaults.ELEVATORPOSITION1);
 		Robot.gearElevator.presetPositions[Robot.gearElevator.HIGH] = 
 				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION2);
-
+		//Gear Slide
+		Robot.gearSlide.lowerLimit = 
+				prefs.getDouble("Slide Lower Limit", Defaults.SLIDELOWERLIMIT);
+		Robot.gearSlide.upperLimit = 
+				prefs.getDouble("Slide Upper Limit", Defaults.SLIDEUPPERLIMIT);
+		
 		Robot.highGoalShooter.presetSpeed[0] = 
 				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[0], Defaults.WHEEL_SPEED0);
 		Robot.highGoalShooter.presetSpeed[1] = 
@@ -66,13 +73,21 @@ public class RobotPrefs {
 		//Setup the nv RAM in the Roborio
 		prefs = Preferences.getInstance();
 
+		// Elevator
 		if (!prefs.containsKey("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW])) {
 			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW], Defaults.ELEVATORPOSITION1);
 		}
 		if (!prefs.containsKey("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH]))  {	
 			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION2);
 		}
-
+		// Slide
+		if (!prefs.containsKey("Slide Lower Limit")) {
+			prefs.putDouble("Slide Lower Limit", Defaults.SLIDELOWERLIMIT);
+		}
+		if (!prefs.containsKey("Slide Upper Limit")) {
+			prefs.putDouble("Slide Upper Limit", Defaults.SLIDEUPPERLIMIT);
+		}
+		
 		if (!prefs.containsKey("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[0])) {
 			prefs.putDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[0], Defaults.WHEEL_SPEED0);
 		}

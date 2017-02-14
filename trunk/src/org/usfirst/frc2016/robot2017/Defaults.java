@@ -31,6 +31,10 @@ public class Defaults {
 // Elevator presets
     protected static final double ELEVATORPOSITION1 = 0;
     protected static final double ELEVATORPOSITION2 = 6100;
+    
+// Gear Slide Limits
+    protected static final double SLIDEUPPERLIMIT = .5;
+    protected static final double SLIDELOWERLIMIT = -.5;
 
 // Wheel Speeds
     protected static final double WHEEL_SPEED0 = 400;
