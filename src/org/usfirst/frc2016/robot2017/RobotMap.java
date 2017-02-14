@@ -15,7 +15,6 @@ package org.usfirst.frc2016.robot2017;
 import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -53,11 +52,9 @@ public class RobotMap {
     public static Compressor drivetrainCompressor;
     public static CANTalon highGoalShooterHighGoalTalon1;
     public static CANTalon highGoalShooterHighGoalTalon2;
-    public static Servo servoTestServo1;
+    public static Servo gearSlideGearSlideServo;
     public static SpeedController winchWinchSpark;
     public static CANTalon gearElevatorGearElevatorTalon;
-    public static CANTalon gearSlideGearSlideTalon;
-    public static DigitalInput gearSlideSlideCenterSensor;
     public static Solenoid gearGrabberGearGrabSolenoid;
     public static SpeedController floorBeltFloorSpark;
     public static SpeedController transBeltTransSpark;
@@ -110,20 +107,14 @@ public class RobotMap {
         highGoalShooterHighGoalTalon2 = new CANTalon(2);
         LiveWindow.addActuator("HighGoalShooter", "HighGoalTalon2", highGoalShooterHighGoalTalon2);
         
-        servoTestServo1 = new Servo(8);
-        LiveWindow.addActuator("ServoTest", "Servo 1", servoTestServo1);
+        gearSlideGearSlideServo = new Servo(8);
+        LiveWindow.addActuator("GearSlide", "GearSlideServo", gearSlideGearSlideServo);
         
         winchWinchSpark = new Talon(9);
         LiveWindow.addActuator("Winch", "WinchSpark", (Talon) winchWinchSpark);
         
         gearElevatorGearElevatorTalon = new CANTalon(0);
         LiveWindow.addActuator("GearElevator", "GearElevatorTalon", gearElevatorGearElevatorTalon);
-        
-        gearSlideGearSlideTalon = new CANTalon(3);
-        LiveWindow.addActuator("GearSlide", "GearSlideTalon", gearSlideGearSlideTalon);
-        
-        gearSlideSlideCenterSensor = new DigitalInput(8);
-        LiveWindow.addSensor("GearSlide", "SlideCenterSensor", gearSlideSlideCenterSensor);
         
         gearGrabberGearGrabSolenoid = new Solenoid(0, 1);
         LiveWindow.addActuator("GearGrabber", "GearGrabSolenoid", gearGrabberGearGrabSolenoid);
