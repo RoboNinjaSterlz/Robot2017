@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 import org.usfirst.frc2016.robot2017.commands.AutonomousCommand;
 import org.usfirst.frc2016.robot2017.subsystems.*;
+import org.usfirst.frc2016.robot2017.commands.*;
 
 //import java.io.IOException;
 
@@ -166,6 +167,8 @@ public class Robot extends IterativeRobot {
         robotPrefs.setupPrefs();
         robotPrefs.doLoadPrefs();
 //        loadGrip();
+        Scheduler.getInstance().add(new CenterSlide());
+        Scheduler.getInstance().add(new CalibrateElevator());
     }
 
     /**
