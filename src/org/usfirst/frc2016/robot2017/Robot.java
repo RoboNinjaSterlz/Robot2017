@@ -268,5 +268,6 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putBoolean("Robot Calibrated",robotIsCalibrated);
     	//SmartDashboard.putNumber("PD Port 4 Current", pdPanel.getCurrent(4));
 		SmartDashboard.putNumber("WSpeed",highGoalShooter.speed );
+		SmartDashboard.putNumber("GearSlidePosition", gearSlide.desiredPosition);
     	}
 }
