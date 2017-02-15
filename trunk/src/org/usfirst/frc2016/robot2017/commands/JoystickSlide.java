@@ -44,7 +44,8 @@ public class JoystickSlide extends Command {
     protected void execute() {
     	double joyx = Robot.oi.operatorJoy.getX();
     	if (Math.abs(joyx) >.05) {
-    		Robot.gearSlide.adjustSlide(25*joyx);
+    		Robot.gearSlide.adjustSlide(.01*joyx);
+//    		Robot.gearSlide.slideGear(.5*joyx);
     	}
     }
 

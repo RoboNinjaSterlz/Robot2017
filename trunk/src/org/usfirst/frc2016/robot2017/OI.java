@@ -65,6 +65,7 @@ public class OI {
     public JoystickButton floorBeltOutButton;
     public JoystickButton gearGrabButton;
     public JoystickButton gearReleaseButton;
+    public JoystickButton gearSlideZeroButton;
     public Joystick operatorJoy;
     public JoystickButton winchLiftButton;
     public Joystick cCI;
@@ -80,6 +81,8 @@ public class OI {
         winchLiftButton.whileHeld(new WinchLift());
         operatorJoy = new Joystick(2);
         
+        gearSlideZeroButton = new JoystickButton(operatorJoy, 12);
+        gearSlideZeroButton.whileHeld(new CenterSlide());
         gearReleaseButton = new JoystickButton(operatorJoy, 1);
         gearReleaseButton.whenPressed(new GearRelease());
         gearGrabButton = new JoystickButton(operatorJoy, 2);
