@@ -43,10 +43,11 @@ public class JoystickSlide extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double joyx = Robot.oi.operatorJoy.getX();
-    	if (Math.abs(joyx) >.05) {
-//    		Robot.gearSlide.adjustSlide(.01*joyx);
-    		Robot.gearSlide.slideGear(.5*joyx);
+    	if (Math.abs(joyx) <.05) {
+    		joyx = 0;
     	}
+    		//Robot.gearSlide.adjustSlide(.01*joyx);
+    		Robot.gearSlide.slideGear(.5*joyx);
     }
 
     // Make this return true when this Command no longer needs to run execute()
