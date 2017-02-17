@@ -47,7 +47,7 @@ public class GearSlide extends Subsystem {
     		position = upperLimit;
     	}
     	desiredPosition=position;
-    	gearSlideServo.set(position);
+    	gearSlideServo.set(position+.5);
     }
     
     public void slideToCenter() {
