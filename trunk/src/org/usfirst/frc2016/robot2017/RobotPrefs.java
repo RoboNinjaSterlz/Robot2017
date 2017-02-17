@@ -45,8 +45,10 @@ public class RobotPrefs {
 		//Gear Elevator
 		Robot.gearElevator.presetPositions[Robot.gearElevator.LOW] = 
 				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW], Defaults.ELEVATORPOSITION1);
+		Robot.gearElevator.presetPositions[Robot.gearElevator.PREPICKUP] = 
+				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.PREPICKUP], Defaults.ELEVATORPOSITION2);
 		Robot.gearElevator.presetPositions[Robot.gearElevator.HIGH] = 
-				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION2);
+				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION3);
 		//Gear Slide
 		Robot.gearSlide.lowerLimit = 
 				prefs.getDouble("Slide Lower Limit", Defaults.SLIDELOWERLIMIT);
@@ -77,8 +79,11 @@ public class RobotPrefs {
 		if (!prefs.containsKey("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW])) {
 			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW], Defaults.ELEVATORPOSITION1);
 		}
+		if (!prefs.containsKey("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.PREPICKUP]))  {	
+			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.PREPICKUP], Defaults.ELEVATORPOSITION2);
+		}
 		if (!prefs.containsKey("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH]))  {	
-			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION2);
+			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.HIGH], Defaults.ELEVATORPOSITION3);
 		}
 		// Slide
 		if (!prefs.containsKey("Slide Lower Limit")) {

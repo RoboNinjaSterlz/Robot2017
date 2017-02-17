@@ -231,7 +231,7 @@ public class Robot extends IterativeRobot {
 		}
 		Scheduler.getInstance().run();
         gearElevator.periodic();
-		//gyro.periodic();
+		gyro.periodic();
 		updateDashboard();
     }
     /**

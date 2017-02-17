@@ -30,7 +30,8 @@ public class Defaults {
     
 // Elevator presets
     protected static final double ELEVATORPOSITION1 = 0;
-    protected static final double ELEVATORPOSITION2 = 6100;
+    protected static final double ELEVATORPOSITION2 = 1000;
+    protected static final double ELEVATORPOSITION3 = 7000;
     
 // Gear Slide Limits
     protected static final double SLIDEUPPERLIMIT = .5;
