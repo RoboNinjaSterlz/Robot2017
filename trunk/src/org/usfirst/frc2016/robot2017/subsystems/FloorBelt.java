@@ -36,11 +36,11 @@ public class FloorBelt extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void floorBeltIn() {
-    	floorSpark.set(1);
+    	floorSpark.set(-.5);
     	
     }
     public void floorBeltOut() {
-    	floorSpark.set(-1);
+    	floorSpark.set(.5);
     }
 	public void floorBeltOff() {
 		floorSpark.set(0);

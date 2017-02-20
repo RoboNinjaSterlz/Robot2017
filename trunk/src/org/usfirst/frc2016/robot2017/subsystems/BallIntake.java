@@ -37,7 +37,7 @@ public class BallIntake extends Subsystem {
     // here. Call these from Commands.
 
     public void IntakeIn() {
-    	intakeSpark.set(1);
+    	intakeSpark.set(-.5);
     	
     }
     public void IntakeOff() {
@@ -45,7 +45,7 @@ public class BallIntake extends Subsystem {
     	
     }
     public void IntakeOut() {
-    	intakeSpark.set(-1);
+    	intakeSpark.set(.5);
     }
     
     public void initDefaultCommand() {

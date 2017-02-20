@@ -101,9 +101,9 @@ public class GearElevator extends Subsystem {
     	if (gearElevatorTalon.isRevLimitSwitchClosed()) {
     		gearElevatorTalon.set(0); // Turn off output
     		desiredPosition = 0;
+    		gearElevatorTalon.setPosition(0);
     		gearElevatorTalon.changeControlMode(TalonControlMode.Position);
     		// reset the encoder
-    		gearElevatorTalon.setPosition(0);
     		gearElevatorTalon.set(0);
 //    		gearElevatorTalon.reverseSensor(false);
 //    		gearElevatorTalon.reverseOutput(true);
@@ -160,6 +160,9 @@ public class GearElevator extends Subsystem {
     	public boolean isPositioned() {
     		double position;
     		position = Math.abs(desiredPosition - getPosition());
+    		if (desiredPosition == 0 && gearElevatorTalon.isRevLimitSwitchClosed()) {
+        		gearElevatorTalon.setPosition(0);
+    		}
     		return (position <= AbsoluteTolerance);
 /*    		position = gearElevatorTalon.getClosedLoopError();
     		return (AbsoluteTolerance >= Math.abs(position));
