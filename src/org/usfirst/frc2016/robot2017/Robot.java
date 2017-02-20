@@ -272,5 +272,8 @@ public class Robot extends IterativeRobot {
     	//SmartDashboard.putNumber("PD Port 4 Current", pdPanel.getCurrent(4));
 		SmartDashboard.putNumber("WSpeed",highGoalShooter.speed );
 		SmartDashboard.putNumber("GearSlidePosition", gearSlide.desiredPosition);
+		SmartDashboard.putNumber("LeftEncoder", drivetrain.leftEncoder.get());
+		SmartDashboard.putNumber("RightEncoder", drivetrain.rightEncoder.get());
+		
     	}
 }
