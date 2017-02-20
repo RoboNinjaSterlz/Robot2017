@@ -56,10 +56,8 @@ public class Drivetrain extends Subsystem {
     private final SpeedController leftdrive = RobotMap.drivetrainLeftdrive;
     private final SpeedController rightdrive = RobotMap.drivetrainRightdrive;
     private final RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
-    private final Encoder leftEncoder = RobotMap.drivetrainLeftEncoder;
-    private final Encoder rightEncoder = RobotMap.drivetrainRightEncoder;
-    private final Encoder driveLeftEncoder = RobotMap.drivetrainDriveLeftEncoder;
-    private final Encoder rightDriveEncoder = RobotMap.drivetrainRightDriveEncoder;
+    public final Encoder leftEncoder = RobotMap.drivetrainLeftEncoder;
+    public final Encoder rightEncoder = RobotMap.drivetrainRightEncoder;
     private final Solenoid shiftSolenoid = RobotMap.drivetrainShiftSolenoid;
     private final Compressor compressor = RobotMap.drivetrainCompressor;
 
@@ -109,8 +107,8 @@ public class Drivetrain extends Subsystem {
         // The values to pass to the motors are adjusted by the ramp method
         leftCurrentSpeed = returnRamp(leftCurrentSpeed, leftY);
         rightCurrentSpeed = returnRamp(rightCurrentSpeed, rightY);
-        SmartDashboard.putNumber("LJoyY", rightY);
-        SmartDashboard.putNumber("LCurrentSpeed", leftCurrentSpeed);
+        //SmartDashboard.putNumber("LJoyY", letfY);
+        //SmartDashboard.putNumber("LCurrentSpeed", leftCurrentSpeed);
     	robotDrive.tankDrive(leftCurrentSpeed, rightCurrentSpeed);
     }	
     
