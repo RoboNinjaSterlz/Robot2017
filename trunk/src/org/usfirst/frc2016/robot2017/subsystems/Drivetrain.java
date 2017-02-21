@@ -56,8 +56,8 @@ public class Drivetrain extends Subsystem {
     private final SpeedController leftdrive = RobotMap.drivetrainLeftdrive;
     private final SpeedController rightdrive = RobotMap.drivetrainRightdrive;
     private final RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
-    public final Encoder leftEncoder = RobotMap.drivetrainLeftEncoder;
-    public final Encoder rightEncoder = RobotMap.drivetrainRightEncoder;
+    private final Encoder leftEncoder = RobotMap.drivetrainLeftEncoder;
+    private final Encoder rightEncoder = RobotMap.drivetrainRightEncoder;
     private final Solenoid shiftSolenoid = RobotMap.drivetrainShiftSolenoid;
     private final Compressor compressor = RobotMap.drivetrainCompressor;
 

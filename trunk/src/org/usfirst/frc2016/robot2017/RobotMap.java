@@ -46,8 +46,6 @@ public class RobotMap {
     public static RobotDrive drivetrainRobotDrive;
     public static Encoder drivetrainLeftEncoder;
     public static Encoder drivetrainRightEncoder;
-    public static Encoder drivetrainDriveLeftEncoder;
-    public static Encoder drivetrainRightDriveEncoder;
     public static Solenoid drivetrainShiftSolenoid;
     public static Compressor drivetrainCompressor;
     public static CANTalon highGoalShooterHighGoalTalon1;
@@ -87,14 +85,6 @@ public class RobotMap {
         LiveWindow.addSensor("Drivetrain", "RightEncoder", drivetrainRightEncoder);
         drivetrainRightEncoder.setDistancePerPulse(1.0);
         drivetrainRightEncoder.setPIDSourceType(PIDSourceType.kRate);
-        drivetrainDriveLeftEncoder = new Encoder(4, 5, false, EncodingType.k4X);
-        LiveWindow.addSensor("Drivetrain", "DriveLeftEncoder", drivetrainDriveLeftEncoder);
-        drivetrainDriveLeftEncoder.setDistancePerPulse(1.0);
-        drivetrainDriveLeftEncoder.setPIDSourceType(PIDSourceType.kRate);
-        drivetrainRightDriveEncoder = new Encoder(6, 7, false, EncodingType.k4X);
-        LiveWindow.addSensor("Drivetrain", "RightDriveEncoder", drivetrainRightDriveEncoder);
-        drivetrainRightDriveEncoder.setDistancePerPulse(1.0);
-        drivetrainRightDriveEncoder.setPIDSourceType(PIDSourceType.kRate);
         drivetrainShiftSolenoid = new Solenoid(0, 0);
         LiveWindow.addActuator("Drivetrain", "ShiftSolenoid", drivetrainShiftSolenoid);
         
