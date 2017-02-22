@@ -38,6 +38,11 @@ public class Winch extends Subsystem {
     // here. Call these from Commands.
     public void lift()
     {
+    	winchSpark.set(-1);
+    }
+    
+    public void drop()
+    {
     	winchSpark.set(1);
     }
 
