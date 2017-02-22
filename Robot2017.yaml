@@ -558,35 +558,6 @@ Children:
           value: whenPressed
       Base: Joystick Button
       Name: ShiftLowButton
-    - Children: []
-      Properties:
-        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
-          name: Joystick, validators: null, value: DriveLeft}
-        Parameters: !!robotbuilder.data.properties.ParametersProperty
-          default: []
-          name: Parameters
-          validators: null
-          value: []
-        Button: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id018
-          default: '1'
-          name: Button
-          validators: null
-          value: '1'
-        Command: !!robotbuilder.data.properties.TypeSelectionProperty
-          default: None
-          name: Command
-          type: Command
-          validators: *id019
-          value: SwitchCameras
-        When to Run: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id020
-          default: whileHeld
-          name: When to Run
-          validators: null
-          value: whenPressed
-      Base: Joystick Button
-      Name: Joystick Button 1
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: &id021 ['0', '1', '2', '3', '4', '5']
@@ -926,6 +897,35 @@ Children:
           value: whenPressed
       Base: Joystick Button
       Name: CompPrePickupButton
+    - Children: []
+      Properties:
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: OperatorJoy}
+        Parameters: !!robotbuilder.data.properties.ParametersProperty
+          default: []
+          name: Parameters
+          validators: null
+          value: []
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id018
+          default: '1'
+          name: Button
+          validators: null
+          value: '12'
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id019
+          value: SwitchCameras
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id020
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+      Base: Joystick Button
+      Name: CameraSwitchButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id021
@@ -1898,14 +1898,14 @@ Children:
         validators: null
         value: []
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Requires, type: Subsystem, validators: null, value: None}
+        name: Requires, type: Subsystem, validators: null, value: Cameras}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id039 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id039
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: SwitchCameras
   Properties: {}
