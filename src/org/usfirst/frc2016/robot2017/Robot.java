@@ -122,7 +122,8 @@ public class Robot extends IterativeRobot {
     	calTimerExpired = false;
     	
     	camServer = CameraServer.getInstance();
-        frontCamera = new UsbCamera("Front",0);
+    	//frontCamera=camServer.startAutomaticCapture("Switcher", 0);
+    	frontCamera = new UsbCamera("Front",0);
         rearCamera = new UsbCamera("Rear", 1);
         camServer.addCamera(frontCamera);
         camServer.addCamera(rearCamera);
@@ -286,10 +287,12 @@ public class Robot extends IterativeRobot {
     	SmartDashboard.putBoolean("Elevator Calibrated", gearElevator.isCalibrated());
     	SmartDashboard.putBoolean("Robot Calibrated",robotIsCalibrated);
     	//SmartDashboard.putNumber("PD Port 4 Current", pdPanel.getCurrent(4));
-		SmartDashboard.putNumber("WSpeed",highGoalShooter.speed );
+		//SmartDashboard.putNumber("WSpeed",highGoalShooter.speed );
 		SmartDashboard.putNumber("GearSlidePosition", gearSlide.desiredPosition);
-		SmartDashboard.putNumber("LeftEncoder", RobotMap.drivetrainLeftEncoder.get());
-		SmartDashboard.putNumber("RightEncoder", RobotMap.drivetrainRightEncoder.get());
+		SmartDashboard.putNumber("LeftEncode", RobotMap.drivetrainLeftEncoder.getDistance());
+		SmartDashboard.putNumber("LeftEncoderRaw", RobotMap.drivetrainLeftEncoder.get());
+		SmartDashboard.putNumber("RightEncoder", RobotMap.drivetrainRightEncoder.getDistance());
+		SmartDashboard.putNumber("RightEncoderRaw", RobotMap.drivetrainRightEncoder.get());
 		
     	}
 }
