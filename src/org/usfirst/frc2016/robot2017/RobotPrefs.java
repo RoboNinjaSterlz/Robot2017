@@ -9,7 +9,7 @@
 package org.usfirst.frc2016.robot2017;
 import org.usfirst.frc2016.robot2017.Defaults;
 import org.usfirst.frc2016.robot2017.Robot;
-
+import org.usfirst.frc2016.robot2017.commands.*;
 import edu.wpi.first.wpilibj.Preferences;
 
 /**
@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.Preferences;
 public class RobotPrefs {
 	// This class handles initializing and reading presets from the cRio NV RAM
 	Preferences prefs;
-
+	public double straightGearSpeed, straightGearDistance;	
 	public RobotPrefs() {
 
 	}
@@ -42,6 +42,13 @@ public class RobotPrefs {
 		 *  The call to setMax will update the limit.
 		 */
 
+		// Straight Gear 
+		straightGearSpeed = 
+				prefs.getDouble("StraightGearSpeed", Defaults.STRAIGHTGEARSPEED);
+		straightGearDistance = 
+				prefs.getDouble("StraightGearDistance" , Defaults.STRAIGHTGEARDISTANCE);
+
+		
 		//Gear Elevator
 		Robot.gearElevator.presetPositions[Robot.gearElevator.LOW] = 
 				prefs.getDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW], Defaults.ELEVATORPOSITION1);
@@ -59,7 +66,8 @@ public class RobotPrefs {
 				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[0], Defaults.WHEEL_SPEED0);
 		Robot.highGoalShooter.presetSpeed[1] = 
 				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[1], Defaults.WHEEL_SPEED1);
-/*
+
+		/*
  		Robot.highGoalShooter.presetSpeed[2] = 
 				prefs.getDouble("Wheel "+Robot.highGoalShooter.WheelSpeedLabels[2], Defaults.WHEEL_SPEED2);
 		Robot.highGoalShooter.presetSpeed[3] = 
@@ -74,7 +82,15 @@ public class RobotPrefs {
 	void setupPrefs() {
 		//Setup the nv RAM in the Roborio
 		prefs = Preferences.getInstance();
-
+		
+		
+		// Straight Gear Placement
+		if (!prefs.containsKey("StraightGearSpeed")) {
+			prefs.putDouble("StraightGearSpeed", Defaults.STRAIGHTGEARSPEED);
+		}
+		if (!prefs.containsKey("StraightGearDistance")) {
+			prefs.putDouble("StraightGearDistance", Defaults.STRAIGHTGEARDISTANCE);
+		}
 		// Elevator
 		if (!prefs.containsKey("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW])) {
 			prefs.putDouble("Elevator "+Robot.gearElevator.ElevatorPositionLabels[Robot.gearElevator.LOW], Defaults.ELEVATORPOSITION1);

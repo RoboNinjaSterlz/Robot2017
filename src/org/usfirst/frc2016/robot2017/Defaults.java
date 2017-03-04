@@ -27,7 +27,9 @@ public class Defaults {
     protected static final double AUT_RIGHT_Y = -.8;
     protected static final double AUT_LEFT_Y = .8;
 
-    
+// Autonomous Straight Gear
+    protected static final double STRAIGHTGEARSPEED = 0.4;
+    protected static final double STRAIGHTGEARDISTANCE = 80.5;
 // Elevator presets
     protected static final double ELEVATORPOSITION1 = 0;
     protected static final double ELEVATORPOSITION2 = 1000;
