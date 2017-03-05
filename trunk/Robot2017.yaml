@@ -196,24 +196,14 @@ Children:
     - Children: []
       Properties:
         CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id010 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+          choices: &id011 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
             '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
           default: '2'
           name: CAN ID
-          validators: &id011 [CANID]
+          validators: &id012 [CANID]
           value: '1'
       Base: CAN Talon
       Name: HighGoalTalon1
-    - Children: []
-      Properties:
-        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id010
-          default: '2'
-          name: CAN ID
-          validators: *id011
-          value: '2'
-      Base: CAN Talon
-      Name: HighGoalTalon2
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -226,7 +216,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: &id012 []
+        value: &id010 []
     Base: Subsystem
     Name: HighGoalShooter
   - Children:
@@ -253,7 +243,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: *id012
+        value: *id010
     Base: Subsystem
     Name: GearSlide
   - Children:
@@ -285,17 +275,17 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: *id012
+        value: *id010
     Base: Subsystem
     Name: Winch
   - Children:
     - Children: []
       Properties:
         CAN ID: !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id010
+          choices: *id011
           default: '2'
           name: CAN ID
-          validators: *id011
+          validators: *id012
           value: '0'
       Base: CAN Talon
       Name: GearElevatorTalon

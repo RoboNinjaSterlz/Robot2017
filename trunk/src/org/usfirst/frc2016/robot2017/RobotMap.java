@@ -49,7 +49,6 @@ public class RobotMap {
     public static Solenoid drivetrainShiftSolenoid;
     public static Compressor drivetrainCompressor;
     public static CANTalon highGoalShooterHighGoalTalon1;
-    public static CANTalon highGoalShooterHighGoalTalon2;
     public static Servo gearSlideGearSlideServo;
     public static SpeedController winchWinchSpark;
     public static CANTalon gearElevatorGearElevatorTalon;
@@ -93,9 +92,6 @@ public class RobotMap {
         
         highGoalShooterHighGoalTalon1 = new CANTalon(1);
         LiveWindow.addActuator("HighGoalShooter", "HighGoalTalon1", highGoalShooterHighGoalTalon1);
-        
-        highGoalShooterHighGoalTalon2 = new CANTalon(2);
-        LiveWindow.addActuator("HighGoalShooter", "HighGoalTalon2", highGoalShooterHighGoalTalon2);
         
         gearSlideGearSlideServo = new Servo(8);
         LiveWindow.addActuator("GearSlide", "GearSlideServo", gearSlideGearSlideServo);
