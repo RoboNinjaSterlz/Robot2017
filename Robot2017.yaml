@@ -1239,7 +1239,7 @@ Children:
     Base: Command
     Name: ShiftHigh
   - Children: []
-    Properties: &id047
+    Properties: &id046
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -1719,7 +1719,7 @@ Children:
     Base: Command Group
     Name: CompPreparePickup
   - Children: []
-    Properties: &id051
+    Properties: &id050
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -1980,7 +1980,7 @@ Children:
     Base: Command Group
     Name: AutoStraightGearPlacement
   - Children: []
-    Properties: &id045
+    Properties: &id044
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -2032,15 +2032,18 @@ Children:
         validators: null
         value: []
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id043 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id043
+        value: []
       Commands: !!robotbuilder.data.properties.ListProperty
-        default: &id055
-        - &id048 !!robotbuilder.data.CommandGroupEntry
+        default: []
+        name: Commands
+        validators: *id027
+        value:
+        - &id047 !!robotbuilder.data.CommandGroupEntry
           command:
-            base: &id046
+            base: &id045
               help: A command specifies an action that the robot can perform.
               name: Command
               properties:
@@ -2054,14 +2057,14 @@ Children:
                 validators: null
                 value: []
               - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id044 []
+                default: &id043 []
                 name: Parameter presets
                 validators: null
-                value: *id044
+                value: *id043
               supports: {}
               type: Command
             name: IsElevatorCalibrated
-            properties: *id045
+            properties: *id044
           hasMatch: true
           order: Sequential
           parameters:
@@ -2070,11 +2073,11 @@ Children:
             validators: null
             value: []
           previous: null
-        - &id052 !!robotbuilder.data.CommandGroupEntry
+        - &id051 !!robotbuilder.data.CommandGroupEntry
           command:
-            base: *id046
+            base: *id045
             name: ShiftLow
-            properties: *id047
+            properties: *id046
           hasMatch: true
           order: Sequential
           parameters:
@@ -2082,8 +2085,8 @@ Children:
             name: ParametersProperty
             validators: null
             value: []
-          previous: *id048
-        - &id054 !!robotbuilder.data.CommandGroupEntry
+          previous: *id047
+        - &id053 !!robotbuilder.data.CommandGroupEntry
           command:
             base:
               help: A group of commands set to run together in a prescribed way.
@@ -2092,24 +2095,24 @@ Children:
               - !!robotbuilder.data.properties.BooleanProperty {default: true, name: Button on SmartDashboard,
                 validators: null, value: true}
               - !!robotbuilder.data.properties.ListProperty
-                default: &id049 []
+                default: &id048 []
                 name: Commands
                 validators: *id027
-                value: *id049
+                value: *id048
               - !!robotbuilder.data.properties.ParametersProperty
                 default: []
                 name: Parameters
                 validators: null
                 value: []
               - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id050 []
+                default: &id049 []
                 name: Parameter presets
                 validators: null
-                value: *id050
+                value: *id049
               supports: {}
               type: Command
             name: CompGrab
-            properties: *id051
+            properties: *id050
           hasMatch: true
           order: Sequential
           parameters:
@@ -2117,7 +2120,7 @@ Children:
             name: ParametersProperty
             validators: null
             value: []
-          previous: *id052
+          previous: *id051
         - !!robotbuilder.data.CommandGroupEntry
           command:
             base:
@@ -2134,10 +2137,10 @@ Children:
                 validators: null
                 value: []
               - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id053 []
+                default: &id052 []
                 name: Parameter presets
                 validators: null
-                value: *id053
+                value: *id052
               supports: {}
               type: Command
             name: ArcadeDrive
@@ -2176,15 +2179,12 @@ Children:
             validators: null
             value:
             - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: speed,
-              type: double, value: '0'}
+              type: double, value: '0.5'}
             - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: angle,
               type: double, value: '0'}
             - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: distance,
-              type: double, value: '0'}
-          previous: *id054
-        name: Commands
-        validators: *id027
-        value: *id055
+              type: double, value: '110'}
+          previous: *id053
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
