@@ -121,15 +121,15 @@ public class Robot extends IterativeRobot {
 		calTimerExpired = false;
 
 		camServer = CameraServer.getInstance();
-		//frontCamera=camServer.startAutomaticCapture("Switcher", 0);
-		frontCamera = new UsbCamera("Front",0);
+		frontCamera=camServer.startAutomaticCapture("Switcher", 0);
+/*		frontCamera = new UsbCamera("Front",0);
 		//        rearCamera = new UsbCamera("Rear", 1);
 		camServer.addCamera(frontCamera);
 		//        camServer.addCamera(rearCamera);
 		server = camServer.addServer("serve_Switcher");
 		server.setSource(frontCamera);
 		frontCameraActive=true;
-
+*/
 		/*
 		 * The following line loads the grip program on the roborio
 		 * comment out the line while debugging the filters on the pc.
