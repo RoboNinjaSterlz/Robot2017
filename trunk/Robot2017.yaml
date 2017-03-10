@@ -76,7 +76,7 @@ Children:
           validators: &id005 [DigitalChannel]
           value: '0'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
-          name: Distance Per Pulse, validators: null, value: 0.0397304}
+          name: Distance Per Pulse, validators: null, value: 0.045842}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id006 [kDisplacement, kRate]
           default: kRate
@@ -975,7 +975,7 @@ Children:
           name: Command
           type: Command
           validators: *id019
-          value: WinchLift
+          value: WinchLowCurrent
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id020
           default: whileHeld
@@ -983,7 +983,7 @@ Children:
           validators: null
           value: whileHeld
       Base: Joystick Button
-      Name: WinchLiftButton
+      Name: WinchLowCurrentButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id021
@@ -2097,7 +2097,7 @@ Children:
               - !!robotbuilder.data.properties.ListProperty
                 default: &id048 []
                 name: Commands
-                validators: *id027
+                validators: [List]
                 value: *id048
               - !!robotbuilder.data.properties.ParametersProperty
                 default: []
@@ -2189,6 +2189,24 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
     Name: AutoCrossBaseline
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Winch}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id054 []
+        name: Parameter presets
+        validators: null
+        value: *id054
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command
+    Name: WinchLowCurrent
   Properties: {}
   Base: Commands
   Name: Commands

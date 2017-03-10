@@ -37,7 +37,11 @@ import org.usfirst.frc2016.robot2017.commands.*;
  * directory.
  */
 public class Robot extends IterativeRobot {
-
+	private final String GEARALIGNMENT = "GearAlignment";
+	private final String FLASHLEDS = "FlashLEDs";
+	private final String RECORDVIDEO = "RecordVideo";
+	private final String IDLE = "Idle";
+	private  String PIMode = "comeback2later";
 	private final double DELAYPERCOUNT = .02;
 	private final double CAL_TIME_LIMIT = 4;
 	private double calAttemptTimer;
@@ -190,6 +194,8 @@ public class Robot extends IterativeRobot {
 
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		PIMode = IDLE;
+		updateDashboard();
 	}
 
 	public void autonomousInit() {
@@ -204,6 +210,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 		gyro.periodic();
+		PIMode = RECORDVIDEO;
 		updateDashboard();
 	}
 
@@ -226,6 +233,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		gearElevator.periodic();
 		gyro.periodic();
+		PIMode = RECORDVIDEO;
 		updateDashboard();
 	}
 	/**
@@ -271,6 +279,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("LeftEncoderRaw", RobotMap.drivetrainLeftEncoder.get());
 		SmartDashboard.putNumber("RightEncoder", RobotMap.drivetrainRightEncoder.getDistance());
 		SmartDashboard.putNumber("RightEncoderRaw", RobotMap.drivetrainRightEncoder.get());
-
+		SmartDashboard.putString("PIMode", PIMode);
 	}
 }
