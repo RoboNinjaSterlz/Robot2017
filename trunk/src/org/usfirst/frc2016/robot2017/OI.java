@@ -64,8 +64,10 @@ public class OI {
     public JoystickButton compGearGrabButton;
     public JoystickButton gearReleaseButton;
     public JoystickButton compPrePickupButton;
-    public JoystickButton cameraSwitchButton;
     public JoystickButton winchLiftButtonOJ;
+    public JoystickButton loadPrefsButton;
+    public JoystickButton winchReverseButton;
+    public JoystickButton reCalibrateButton;
     public Joystick operatorJoy;
     public JoystickButton winchLowCurrentButton;
     public Joystick cCI;
@@ -83,10 +85,14 @@ public class OI {
         winchLowCurrentButton.whileHeld(new WinchLowCurrent());
         operatorJoy = new Joystick(2);
         
+        reCalibrateButton = new JoystickButton(operatorJoy, 8);
+        reCalibrateButton.whenPressed(new CalibrateElevator());
+        winchReverseButton = new JoystickButton(operatorJoy, 12);
+        winchReverseButton.whileHeld(new WinchDrop());
+        loadPrefsButton = new JoystickButton(operatorJoy, 10);
+        loadPrefsButton.whenPressed(new LoadPrefs());
         winchLiftButtonOJ = new JoystickButton(operatorJoy, 4);
         winchLiftButtonOJ.whileHeld(new WinchLift());
-        cameraSwitchButton = new JoystickButton(operatorJoy, 12);
-        cameraSwitchButton.whenPressed(new SwitchCameras());
         compPrePickupButton = new JoystickButton(operatorJoy, 11);
         compPrePickupButton.whenPressed(new CompPreparePickup());
         gearReleaseButton = new JoystickButton(operatorJoy, 1);
