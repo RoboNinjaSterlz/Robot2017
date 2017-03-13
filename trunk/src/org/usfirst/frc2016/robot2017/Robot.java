@@ -209,6 +209,11 @@ public class Robot extends IterativeRobot {
 	 */
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		if (!robotIsCalibrated) {
+			calibrateRobot();
+		}
+		Scheduler.getInstance().run();
+		gearElevator.periodic();
 		gyro.periodic();
 		PIMode = RECORDVIDEO;
 		updateDashboard();
@@ -253,7 +258,7 @@ public class Robot extends IterativeRobot {
        }    	    
  	}
 	 */    
-	private void calibrateRobot() {
+	public void calibrateRobot() {
 		if ((calAttemptTimer) <= CAL_TIME_LIMIT/DELAYPERCOUNT) {
 			calAttemptTimer ++;
 		}
