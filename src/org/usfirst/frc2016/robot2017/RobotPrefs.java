@@ -27,13 +27,13 @@ public class RobotPrefs {
 	// This is used to see if the operator wants to load new values from
 	// the RobRio NVRAM. If so robotPrefs class will perform the operation.
 	void periodic() {
-		if (Robot.oi.operatorJoy.getRawButton(RobotMap.PREFS_BUTTON)) {
+/*		if (Robot.oi.operatorJoy.getRawButton(RobotMap.PREFS_BUTTON)) {
 			doLoadPrefs();
 		}
+		*/
 	}
-
 	// Read the values stored in NV RAM and store them in variables
-	void doLoadPrefs() {
+ public	void doLoadPrefs() {
  
 		/*
 		 * After setting the value, setMax must be called
