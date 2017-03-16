@@ -26,7 +26,7 @@ public class RobotPrefs {
 
 	// This is used to see if the operator wants to load new values from
 	// the RobRio NVRAM. If so robotPrefs class will perform the operation.
-	void periodic() {
+	public void periodic() {
 /*		if (Robot.oi.operatorJoy.getRawButton(RobotMap.PREFS_BUTTON)) {
 			doLoadPrefs();
 		}
