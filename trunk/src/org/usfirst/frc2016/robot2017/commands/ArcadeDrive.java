@@ -49,6 +49,7 @@ public class ArcadeDrive extends Command {
     protected void initialize() {
     	lEncoderStart = Robot.drivetrain.getLeftEncoder();
     	rEncoderStart = Robot.drivetrain.getRightEncoder();
+    	//Robot.gyro.reset();
     	
     }
 
@@ -82,21 +83,14 @@ public class ArcadeDrive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (m_distance == 0) {
-    		return false;
+    	if (m_angle != 0 && m_distance == 0) {
+    		return (Math.abs((Robot.gyro.getAngle() - m_angle)) < .5) ;
     	}
-    	else { 
-    		if(m_angle != 0) {
-    			return false;
-    		}
-    		else {
-    			if(((m_distance <= (Robot.drivetrain.getRightEncoder() - rEncoderStart)))){
-    				return true;
-    			}
-    			else {
-    				return false;
-    			}
-    		}
+    	else if ( m_distance !=0 ) {
+    		return(m_distance <= Math.abs((Robot.drivetrain.getRightEncoder() - rEncoderStart)));
+    	}
+    	else {
+    		return false;
     	}
     }
 
