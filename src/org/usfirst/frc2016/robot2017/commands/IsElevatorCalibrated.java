@@ -44,12 +44,7 @@ public class IsElevatorCalibrated extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (Robot.gearElevator.isCalibrated()) {
-        	return true;
-        }
-        else { 
-        	return false;
-        }
+        return(Robot.gearElevator.isCalibrated()) ;
     }
 
     // Called once after isFinished returns true
