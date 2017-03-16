@@ -111,7 +111,7 @@ public class GearElevator extends Subsystem {
     		needsCalibrate = false;
     	} else {
     		needsCalibrate = true;
-    		gearElevatorTalon.set(-.35); // Run back at 35% power
+    		gearElevatorTalon.set(-.45); // Run back at 45% power
     	}
     }
 
