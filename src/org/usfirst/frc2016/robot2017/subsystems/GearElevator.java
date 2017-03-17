@@ -136,6 +136,7 @@ public class GearElevator extends Subsystem {
         			didWeMove=true;
         		}
         		goTo(presetPositions[position]);
+        		lastPreset=position;
           	}
         }
     	public void incrementHeight() {
@@ -188,8 +189,14 @@ public class GearElevator extends Subsystem {
     		return !needsCalibrate;
     	}
     	
-    /*	public boolean safeToHomeScoop() {
-    		return (isShooterAtHome() ); //|| (getPosition() < presetPositions[LOW]));
+    	// Return the position by number
+    	public int currentPreset() {
+    		if (isPositioned()) {
+    			return lastPosition;
+    		}
+    		else {
+    			return -1;
+    		}
     	}
     	
       */  
