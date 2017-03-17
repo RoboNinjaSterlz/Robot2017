@@ -75,9 +75,10 @@ public class Robot extends IterativeRobot {
 	/*
 	 * Labels for auto routines 
 	 */
-	final String straightGearAuto = "Straight Gear Auto";
+	final String straightGearAuto = "Straight Gear";
 	final String driveForward = "Drive Forward";
 	final String gearRightSide = "Right Side Gear";
+	final String gearLeftSide = "Left Side Gear";
 	/*
 	 * What autonomous command to run
 	 * and options on the smart dashboard for auto
@@ -175,6 +176,7 @@ public class Robot extends IterativeRobot {
 		autoChooser.addDefault(driveForward, new AutoCrossBaseline());
 		autoChooser.addObject(straightGearAuto, new AutoStraightGearPlacement());
 		autoChooser.addObject(gearRightSide, new AutoGearRightSide());
+		autoChooser.addObject(gearLeftSide, new AutoLeftGearPlacement());
 		SmartDashboard.putData("Autonomous choices", autoChooser);
 
 		// instantiate the command used for the autonomous period

@@ -73,7 +73,7 @@ public class GearElevator extends Subsystem {
 
     	gearElevatorTalon.setProfile(0);
     	gearElevatorTalon.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	gearElevatorTalon.reverseSensor(false);
+    	gearElevatorTalon.reverseSensor(true);
     	gearElevatorTalon.reverseOutput(false);
     	gearElevatorTalon.setAllowableClosedLoopErr(0);
     	// Keep off until we are calibrated.
