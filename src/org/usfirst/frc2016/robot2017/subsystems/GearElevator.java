@@ -39,7 +39,7 @@ public class GearElevator extends Subsystem {
 
 	// keeps track of when the gearElevatorTalon is calibrated
 	private boolean needsCalibrate;
-
+	private int lastPreset;
 	// How good does the position need to be
 	private final double AbsoluteTolerance = 3;
 	
@@ -192,14 +192,14 @@ public class GearElevator extends Subsystem {
     	// Return the position by number
     	public int currentPreset() {
     		if (isPositioned()) {
-    			return lastPosition;
+    			return lastPreset;
     		}
     		else {
     			return -1;
     		}
     	}
     	
-      */  
+     
     	// mostly for debugging updates the smart dashboard with position info
     	public void periodic() {
     		SmartDashboard.putNumber("GearElevatorTalon Desired Pos", gearElevatorTalon.getSetpoint());
