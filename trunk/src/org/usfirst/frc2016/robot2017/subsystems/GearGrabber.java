@@ -35,6 +35,9 @@ public class GearGrabber extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public boolean isGrabbed() {
+    	return !gearGrabSolenoid.get();
+    }
     public void gearGrab(){
     	gearGrabSolenoid.set(false);
     }
