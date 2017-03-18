@@ -76,7 +76,7 @@ Children:
           validators: &id005 [DigitalChannel]
           value: '0'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
-          name: Distance Per Pulse, validators: null, value: 0.0676850764}
+          name: Distance Per Pulse, validators: null, value: 0.0657159156}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id006 [kDisplacement, kRate]
           default: kRate
@@ -110,7 +110,7 @@ Children:
           validators: *id005
           value: '2'
         Distance Per Pulse: !!robotbuilder.data.properties.DoubleProperty {default: 1,
-          name: Distance Per Pulse, validators: null, value: 0.0676850764}
+          name: Distance Per Pulse, validators: null, value: 0.0657159156}
         PID Source: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id006
           default: kRate
@@ -1128,7 +1128,7 @@ Children:
     Base: Command
     Name: TankDrive
   - Children: []
-    Properties:
+    Properties: &id033
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -1243,7 +1243,7 @@ Children:
     Base: Command
     Name: WinchStop
   - Children: []
-    Properties: &id035
+    Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -1351,7 +1351,7 @@ Children:
     Base: Command
     Name: SpeedSetup
   - Children: []
-    Properties: &id041
+    Properties: &id042
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -1405,7 +1405,7 @@ Children:
     Base: Command
     Name: IntakeOut
   - Children: []
-    Properties: &id038
+    Properties: &id037
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -1531,7 +1531,7 @@ Children:
     Base: Command
     Name: LowGoalIn
   - Children: []
-    Properties: &id040
+    Properties: &id039
       Parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
         name: Parameters
@@ -1838,50 +1838,11 @@ Children:
             validators: null
             value: []
           previous: *id032
-        - &id036 !!robotbuilder.data.CommandGroupEntry
+        - &id035 !!robotbuilder.data.CommandGroupEntry
           command:
-            base:
-              help: A command specifies an action that the robot can perform.
-              name: Command
-              properties:
-              - !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-                name: Requires, type: Subsystem, validators: null, value: None}
-              - !!robotbuilder.data.properties.BooleanProperty {default: true, name: Button on SmartDashboard,
-                validators: null, value: true}
-              - !!robotbuilder.data.properties.ParametersProperty
-                default: []
-                name: Parameters
-                validators: null
-                value: []
-              - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id033 []
-                name: Parameter presets
-                validators: null
-                value: *id033
-              supports: {}
-              type: Command
+            base: *id030
             name: DelaySeconds
-            properties:
-              Parameters: !!robotbuilder.data.properties.ParametersProperty
-                default: []
-                name: Parameters
-                validators: null
-                value:
-                - !!robotbuilder.data.properties.ParameterDescriptor {name: seconds,
-                  type: double}
-              Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-                name: Requires, type: Subsystem, validators: null, value: None}
-              Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-                default: []
-                name: Parameter presets
-                validators: null
-                value:
-                - !!robotbuilder.data.properties.ParameterSet
-                  name: three
-                  parameters:
-                  - {name: seconds, type: double, value: '3.5'}
-              Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {
-                default: true, name: Button on SmartDashboard, validators: null, value: false}
+            properties: *id033
           hasMatch: true
           order: Sequential
           parameters:
@@ -1895,8 +1856,8 @@ Children:
         - !!robotbuilder.data.CommandGroupEntry
           command:
             base: *id030
-            name: ElevatorHigh
-            properties: *id035
+            name: ElevatorPrePickup
+            properties: *id026
           hasMatch: true
           order: Sequential
           parameters:
@@ -1904,7 +1865,7 @@ Children:
             name: ParametersProperty
             validators: null
             value: []
-          previous: *id036
+          previous: *id035
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
@@ -1928,7 +1889,7 @@ Children:
         value:
         - !!robotbuilder.data.CommandGroupEntry
           command:
-            base: &id039
+            base: &id038
               help: A command specifies an action that the robot can perform.
               name: Command
               properties:
@@ -1942,14 +1903,14 @@ Children:
                 validators: null
                 value: []
               - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id037 []
+                default: &id036 []
                 name: Parameter presets
                 validators: null
-                value: *id037
+                value: *id036
               supports: {}
               type: Command
             name: FloorBeltIn
-            properties: *id038
+            properties: *id037
           hasMatch: true
           order: Parallel
           parameters:
@@ -1960,9 +1921,9 @@ Children:
           previous: null
         - !!robotbuilder.data.CommandGroupEntry
           command:
-            base: *id039
+            base: *id038
             name: LowGoalOut
-            properties: *id040
+            properties: *id039
           hasMatch: true
           order: Parallel
           parameters:
@@ -1994,9 +1955,28 @@ Children:
         value:
         - !!robotbuilder.data.CommandGroupEntry
           command:
-            base: *id030
+            base: &id041
+              help: A command specifies an action that the robot can perform.
+              name: Command
+              properties:
+              - !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+                name: Requires, type: Subsystem, validators: null, value: None}
+              - !!robotbuilder.data.properties.BooleanProperty {default: true, name: Button on SmartDashboard,
+                validators: null, value: true}
+              - !!robotbuilder.data.properties.ParametersProperty
+                default: []
+                name: Parameters
+                validators: null
+                value: []
+              - !!robotbuilder.data.properties.ParameterSetProperty
+                default: &id040 []
+                name: Parameter presets
+                validators: null
+                value: *id040
+              supports: {}
+              type: Command
             name: FloorBeltIn
-            properties: *id038
+            properties: *id037
           hasMatch: true
           order: Parallel
           parameters:
@@ -2007,9 +1987,9 @@ Children:
           previous: null
         - !!robotbuilder.data.CommandGroupEntry
           command:
-            base: *id030
+            base: *id041
             name: IntakeIn
-            properties: *id041
+            properties: *id042
           hasMatch: true
           order: Parallel
           parameters:
@@ -2213,14 +2193,14 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Drivetrain}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id042
+        default: []
+        name: Parameter presets
+        validators: null
+        value:
         - !!robotbuilder.data.properties.ParameterSet
           name: 20_inches
           parameters:
           - {name: distance, type: double, value: '20'}
-        name: Parameter presets
-        validators: null
-        value: *id042
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -2233,15 +2213,15 @@ Children:
         validators: null
         value: []
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id043 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id043
+        value: []
       Commands: !!robotbuilder.data.properties.ListProperty
-        default: &id044 []
+        default: []
         name: Commands
         validators: *id027
-        value: *id044
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
