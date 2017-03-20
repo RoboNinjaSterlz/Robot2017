@@ -30,7 +30,7 @@ public class GearInTrigger extends Button {
 		// trying again
 		if (!Robot.gearGrabber.isGrabbed()) {
 			solenoidActiveCount ++;
-		)
+		}
 		else {
 			solenoidActiveCount = 0;
 		}
