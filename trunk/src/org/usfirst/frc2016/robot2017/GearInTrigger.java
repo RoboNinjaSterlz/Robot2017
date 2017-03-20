@@ -3,8 +3,11 @@ package org.usfirst.frc2016.robot2017;
 import edu.wpi.first.wpilibj.buttons.*;
 import edu.wpi.first.wpilibj.DigitalInput;
 import org.usfirst.frc2016.robot2017.RobotMap;
+import edu.wpi.first.wpilibj.command.*;
+import org.usfirst.frc2016.robot2017.Robot;
 
 public class GearInTrigger extends Button {
+	public boolean weGrabbed;
 	private int activeCount;
 	private int solenoidActiveCount;
 	
