@@ -291,7 +291,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("RightEncoderRaw", RobotMap.drivetrainRightEncoder.get());
 		SmartDashboard.putString("PIMode", PIMode);
 		SmartDashboard.putBoolean("GearTrigger", oi.gearTrigger.get());
-		SmartDashboard.putBoolean("WeGrabbedTheGear", Robot.oi.gearTrigger.weGrabbed);
+		SmartDashboard.putBoolean("WeGrabbedTheGear", !RobotMap.didWeGrab.get());
 		SmartDashboard.putBoolean("AutoSwitch", Robot.oi.cCI.getRawButton(1));
 	}
 }
