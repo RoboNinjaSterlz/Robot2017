@@ -10,12 +10,17 @@ public class GearInTrigger extends Button {
 	public boolean weGrabbed;
 	private int activeCount;
 	private int solenoidActiveCount;
+	private int retryCount;
+	private boolean lastTrue;
+	
+	private final int RETRYLIMIT = 10;
 	
 	GearInTrigger() {
-	activeCount = 0;
-	solenoidActiveCount = 0;
+		activeCount = 0;
+		solenoidActiveCount = 0;
+		retryCount = 0;
+		lastTrue = false;
 	}
-
 
 	public boolean get() {
 		boolean state;
@@ -35,18 +40,49 @@ public class GearInTrigger extends Button {
 			solenoidActiveCount = 0;
 		}
 		
+		/*
+		 * Check to see if we had a success
+		 * if so, reset the retry counter for next time.
+		 * success = in prepickup position with the gear
+		 */
+		if (Robot.gearElevator.currentPreset() == Robot.gearElevator.PREPICKUP &&
+			!RobotMap.didWeGrab.get() ) {
+			
+			// Successful grab, so reset the count
+			retryCount = 0;
+		}
+		/*
+		 * As another way to get auto to work after a retry fail
+		 * reset the retry counter when not in auto mode.
+		 */
+		//!! Leave this commented out for now there appears to be a timing
+		// issue on start up when the trigger get is called before cCI is created.
+		//if (!Robot.oi.cCI.getRawButton(1)) {
+		//	retryCount = 0;
+		//}
 		/* 
 		 * Check where the elevator is
 		 * If it isn't in prepare to grab, ignore the switch
 		 */
-		if (Robot.gearElevator.currentPreset() == 1 &&
-				Robot.oi.cCI.getRawButton(1) &&  // Must be in auto mode
-				!Robot.gearGrabber.isGrabbed() &&
-				solenoidActiveCount > 12) {   // Make sure grabber had time to open 12 should be about.25 seconds.
-			// Must be there for 3 counts before we say good.
-			return activeCount>5;
+		if (Robot.gearElevator.currentPreset() == Robot.gearElevator.PREPICKUP &&
+			Robot.oi.cCI.getRawButton(1) &&  // Must be in auto mode
+			!Robot.gearGrabber.isGrabbed() &&
+			solenoidActiveCount > 12 && // Make sure grabber had time to open 12 should be about.25 seconds.
+			activeCount>5 &&	// Must be there for 5 counts before we say good.
+			retryCount <= RETRYLIMIT )
+		{	
+			/*
+			 * The test is valid until the  plunger compresses or the elevator moves
+			 * the following logic prevents counting more than 1 for a single trigger.
+			 */
+			if (!lastTrue) { 
+				retryCount++;
+			}
+			lastTrue = true;
+			return true;
 		}
 		else {
+			lastTrue = false;
 			return false;
 		}
 	}
