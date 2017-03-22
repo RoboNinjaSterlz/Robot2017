@@ -83,15 +83,16 @@ public class ArcadeDrive extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (m_angle != 0 && m_distance == 0) {
-    		return (Math.abs((Robot.gyro.getAngle() - m_angle)) < .5) ;
-    	}
-    	else if ( m_distance !=0 ) {
+    	if ( m_distance !=0 ) {
     		return(m_distance <= Math.abs((Robot.drivetrain.getRightEncoder() - rEncoderStart)));
     	}
     	else {
-    		return false;
+    		//if (m_angle != 0 && m_distance == 0) {
+    		return (Math.abs((Robot.gyro.getAngle() - m_angle)) < .5) ;
     	}
+    	//else {
+    	//	return false;
+    	//}
     }
 
     // Called once after isFinished returns true

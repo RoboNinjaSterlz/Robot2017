@@ -2257,6 +2257,27 @@ Children:
     Properties: *id044
     Base: Command
     Name: DidItGrab
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id045 []
+        name: Parameter presets
+        validators: null
+        value: *id045
+      Commands: !!robotbuilder.data.properties.ListProperty
+        default: &id046 []
+        name: Commands
+        validators: *id027
+        value: *id046
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command Group
+    Name: AutoStraightGearBaseline
   Properties: {}
   Base: Commands
   Name: Commands

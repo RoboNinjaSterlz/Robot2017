@@ -44,7 +44,7 @@ public class GearInTrigger extends Button {
 				!Robot.gearGrabber.isGrabbed() &&
 				solenoidActiveCount > 12) {   // Make sure grabber had time to open 12 should be about.25 seconds.
 			// Must be there for 3 counts before we say good.
-			return activeCount>2;
+			return activeCount>5;
 		}
 		else {
 			return false;
