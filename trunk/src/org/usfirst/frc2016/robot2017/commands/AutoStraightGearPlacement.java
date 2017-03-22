@@ -62,6 +62,6 @@ public class AutoStraightGearPlacement extends CommandGroup {
       //  addSequential(new DelaySeconds(2));
         addSequential(new GearRelease());
         addSequential(new DelaySeconds(.5));
-        addSequential(new ArcadeDrive(0.4, 0, 24));
+        addSequential(new ArcadeDrive(0.6, 0, 24));
     } 
 }
