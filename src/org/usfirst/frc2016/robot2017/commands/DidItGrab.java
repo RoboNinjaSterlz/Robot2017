@@ -46,7 +46,7 @@ public class DidItGrab extends Command {
     	}
     	else {
     		Robot.gearGrabber.gearRelease();
-    		Robot.gearElevator.goToPreset(1);
+    		Robot.gearElevator.goToPreset(Robot.gearElevator.PREPICKUP);
     	}
     }
 
@@ -56,13 +56,13 @@ public class DidItGrab extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (!Robot.oi.cCI.getRawButton(1)) {
-    		return(true);
+    	if (!Robot.oi.cCI.getRawButton(1)) {  // In auto?
+    		return(true); //No
     	}
-    	if (!RobotMap.didWeGrab.get()) {
-    		return(true);
+    	if (!RobotMap.didWeGrab.get()) {  // Do we have the gear?
+    		return(true); //Yes
     	}
-    	return Robot.gearElevator.isPositioned();
+    	return Robot.gearElevator.isPositioned(); // Wait to get in pick up position again.
     }
         
 
