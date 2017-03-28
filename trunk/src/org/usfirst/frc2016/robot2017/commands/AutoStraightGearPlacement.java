@@ -54,7 +54,7 @@ public class AutoStraightGearPlacement extends CommandGroup {
     	addSequential(new IsElevatorCalibrated());
         addSequential(new ShiftLow());
         
-        addSequential(new ElevatorHigh());
+        addParallel(new ElevatorHigh());
       //  addSequential(new CompGrab());
       //  addSequential(new ArcadeDrive(speed, 0, 20));
        // addSequential(new CompGrab());

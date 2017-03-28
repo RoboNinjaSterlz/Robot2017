@@ -47,7 +47,7 @@ public class AutoGearRightSide extends CommandGroup {
     	addSequential(new ResetGyro());
     	addSequential(new IsElevatorCalibrated());
         addSequential(new ShiftLow());
-        addSequential(new ElevatorHigh());
+        addParallel(new ElevatorHigh());
         addSequential(new ArcadeDrive(-.7, 0, 72));
         addSequential(new ArcadeDrive(0, -63, 0));
         addSequential(new ArcadeDrive(-.7, -63, 45));
