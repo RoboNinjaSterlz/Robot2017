@@ -48,8 +48,9 @@ private double startingAngle;
     	//startingAngle = Robot.gyro.getAngle();
     	addSequential(new IsElevatorCalibrated());
     	addSequential(new ResetGyro());
-        addSequential(new ElevatorHigh());
+        addParallel (new ElevatorHigh());
         addSequential(new ShiftLow());
+       // addSequential(new DelaySeconds(.5));
     	addSequential(new ArcadeDrive(-0.75, 0, 180));
     } 
 }

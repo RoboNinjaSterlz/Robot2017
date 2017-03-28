@@ -95,20 +95,24 @@ public class GearElevator extends Subsystem {
     }
     // Put methods for controlling this subsystem
         // here. Call these from Commands.
+    public void completeCalibration(){
+		gearElevatorTalon.set(0); // Turn off output
+		desiredPosition = 0;
+		gearElevatorTalon.setPosition(0);
+		gearElevatorTalon.changeControlMode(TalonControlMode.Position);
+		// reset the encoder
+		gearElevatorTalon.set(0);
+//		gearElevatorTalon.reverseSensor(false);
+//		gearElevatorTalon.reverseOutput(true);
+		gearElevatorTalon.enable();
+		needsCalibrate = false;
+    }
+    
     public void doCalibrate() {
     	// Zero out the encoder by running the elevator backwards
     	// until they reach the optical sensor on the back of the elevator
     	if (gearElevatorTalon.isRevLimitSwitchClosed()) {
-    		gearElevatorTalon.set(0); // Turn off output
-    		desiredPosition = 0;
-    		gearElevatorTalon.setPosition(0);
-    		gearElevatorTalon.changeControlMode(TalonControlMode.Position);
-    		// reset the encoder
-    		gearElevatorTalon.set(0);
-//    		gearElevatorTalon.reverseSensor(false);
-//    		gearElevatorTalon.reverseOutput(true);
-    		gearElevatorTalon.enable();
-    		needsCalibrate = false;
+    		completeCalibration();
     	} else {
     		needsCalibrate = true;
     		gearElevatorTalon.set(-.75); // Run back at 45% power
@@ -199,6 +203,14 @@ public class GearElevator extends Subsystem {
     		}
     	}
     	
+    	public boolean haveTheGear() {
+    		if (getPosition() >= presetPositions[PREPICKUP]) {
+    			return(!RobotMap.didWeGrab.get());
+    		}
+    		else {
+    			return false;
+    		}
+    	}
      
     	// mostly for debugging updates the smart dashboard with position info
     	public void periodic() {
