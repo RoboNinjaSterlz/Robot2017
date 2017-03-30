@@ -50,6 +50,8 @@ public class AutoLeftGearPlacement extends CommandGroup {
         addParallel(new ElevatorHigh());
         addSequential(new ArcadeDrive(-.7, 0, 68));
         addSequential(new ArcadeDrive(0, 63, 0));
+        //addSequential(new CameraDriveGyro());
+        //addSequential(new DriveStraightForDistance(.5, 6));
         addSequential(new ArcadeDrive(-.7, 63, 45));
         addSequential(new GearRelease());
         addSequential(new DelaySeconds(1.5));
