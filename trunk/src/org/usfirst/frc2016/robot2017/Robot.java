@@ -222,7 +222,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		gearElevator.periodic();
 		gyro.periodic();
-		PIMode = RECORDVIDEO;
+		PIMode = GEARALIGNMENT;
 		updateDashboard();
 	}
 
@@ -245,7 +245,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		gearElevator.periodic();
 		gyro.periodic();
-		PIMode = RECORDVIDEO;
+		PIMode = GEARALIGNMENT;
 		updateDashboard();
 	}
 	/**
@@ -286,7 +286,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("Robot Calibrated",robotIsCalibrated);
 		//SmartDashboard.putNumber("PD Port 4 Current", pdPanel.getCurrent(4));
 		//SmartDashboard.putNumber("WSpeed",highGoalShooter.speed );
-		SmartDashboard.putNumber("GearSlidePosition", gearSlide.desiredPosition);
+		//SmartDashboard.putNumber("GearSlidePosition", gearSlide.desiredPosition);
 		SmartDashboard.putNumber("LeftEncoder", RobotMap.drivetrainLeftEncoder.getDistance());
 		SmartDashboard.putNumber("LeftEncoderRaw", RobotMap.drivetrainLeftEncoder.get());
 		SmartDashboard.putNumber("RightEncoder", RobotMap.drivetrainRightEncoder.getDistance());
