@@ -52,15 +52,18 @@ public class AutoStraightGearBaseline extends CommandGroup {
       //  addSequential(new CompGrab());
       //  addSequential(new ArcadeDrive(speed, 0, 20));
        // addSequential(new CompGrab());
-        addSequential(new ArcadeDrive(-0.6, 0 , 78));
+        //addSequential(new ArcadeDrive(-0.6, 0 , 78));
       //  addSequential(new DelaySeconds(2));
+        addSequential(new ArcadeDrive(-0.6, 0, 40));
+        addSequential(new CameraDriveGyro());
+        addSequential(new DriveStraightForDistance(-.5, 6));
         addSequential(new GearRelease());
         addSequential(new DelaySeconds(.5));
         addSequential(new ArcadeDrive(0.6, 0, 28));
         addSequential(new ArcadeDrive(0, 90, 0));
-        addSequential(new ArcadeDrive(-0.6,90,88));
+        addSequential(new ArcadeDrive(-0.6,90,108));
         addSequential(new ArcadeDrive(0, 0, 0));
-        addSequential(new ArcadeDrive(-0.6, 0, 96));
+        addSequential(new ArcadeDrive(-0.6, 0, 150));
         
     } 
 }
