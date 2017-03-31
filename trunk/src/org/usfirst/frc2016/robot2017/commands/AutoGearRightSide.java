@@ -49,12 +49,12 @@ public class AutoGearRightSide extends CommandGroup {
         addSequential(new ShiftLow());
         addParallel(new ElevatorHigh());
         addSequential(new ArcadeDrive(-.7, 0, 72));
-        addSequential(new ArcadeDrive(0, -63, 0));
-        //addSequential(new CameraDriveGyro());
-        //addSequential(new DriveStraightForDistance(.5, 6));
-        addSequential(new ArcadeDrive(-.7, -63, 45));
+        addSequential(new ArcadeDrive(0, -60, 0));
+        addSequential(new CameraDriveGyro());
+        addSequential(new DriveStraightForDistance(-.5, 6));
+        //addSequential(new ArcadeDrive(-.7, -60, 45));
         addSequential(new GearRelease());
         addSequential(new DelaySeconds(1.5));
-        addSequential(new ArcadeDrive(0.6, -63, 25));
+        addSequential(new ArcadeDrive(0.6, -60, 12));
     } 
 }
