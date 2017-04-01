@@ -10,7 +10,9 @@
 
 
 package org.usfirst.frc2016.robot2017.commands;
+import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc2016.robot2017.Robot;
 
 /**
@@ -48,10 +50,13 @@ public class CalibrateElevator extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if (RobotState.isEnabled()) {
+    	    waitCounter++;
+    }                   
     	if (!Robot.gearElevator.isCalibrated()) {
     		Robot.gearElevator.doCalibrate();
     		
-    		if (++waitCounter/DELAYPERCOUNT > SECONDS_TO_TIMEOUT) {
+    		if ((int)(waitCounter*DELAYPERCOUNT) > SECONDS_TO_TIMEOUT) {
     			Robot.gearElevator.completeCalibration();
     		}
     	}
