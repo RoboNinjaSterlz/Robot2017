@@ -26,7 +26,7 @@ import edu.wpi.first.wpilibj.SPI;
  */
 public class Gyro extends Subsystem {
 	
-	public final double gyroP = 0.11;
+	public final double gyroP = 0.09;
 	public final double TURN_MAX = 0.6;
 
 	//ADIS16448_IMU imu;

@@ -54,12 +54,12 @@ public class CameraDriveGyro extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double speed;
-    	if (waitCounter < 25) {
-    		speed = -.65;
-    	}
-    	else {
+    	//if (waitCounter < 25) {
+    		//speed = -.65;
+    	//}
+    	//else {
     		speed = -.60;
-    	}
+    	//}
     	/*
     	 * Get angle from PI add to starting angle
     	 * Get the driving distance so we know when to stop
@@ -67,8 +67,15 @@ public class CameraDriveGyro extends Command {
     	startingAngle = Robot.gyro.getAngle();
     	targetCorrection = SmartDashboard.getNumber("GearAlignAngleError", 1000);
     	if (targetCorrection < 30 && targetCorrection > -30) {
-    		lastValidTargetCorrection = targetCorrection;
+     		lastValidTargetCorrection = targetCorrection;
     	}
+
+   		if ( lastValidTargetCorrection < -20 ) {
+   			lastValidTargetCorrection = -20;
+   		}
+   		else if (lastValidTargetCorrection > 20){
+   			lastValidTargetCorrection = 20;
+   		}
 		Robot.drivetrain.gyroDrive(speed, startingAngle-lastValidTargetCorrection);
 		waitCounter++;
    }
@@ -79,7 +86,7 @@ public class CameraDriveGyro extends Command {
     	targetDistance = SmartDashboard.getNumber("GearAlignDistance", 1000);
     	//SmartDashboard.putNumber("Distance", targetDistance);
     	if (targetDistance < 10*12) {
-    		returnCode = targetDistance < 20;
+    		returnCode = targetDistance < 25;
     	}
         return returnCode; //|| waitCounter*DELAYPERCOUNT > 5;
         }
