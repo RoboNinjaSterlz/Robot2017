@@ -54,15 +54,16 @@ public class AutoStraightGearPlacement extends CommandGroup {
     	addSequential(new IsElevatorCalibrated());
         addSequential(new ShiftLow());
         
-        addParallel(new ElevatorHigh());
+        addSequential(new ElevatorPrePickup());
       //  addSequential(new CompGrab());
       //  addSequential(new ArcadeDrive(speed, 0, 20));
        // addSequential(new CompGrab());
       //  addSequential(new ArcadeDrive(speed, 0 , distance));
       //  addSequential(new DelaySeconds(2));
-        addSequential(new ArcadeDrive(-0.6, 0, 40));
+        //addSequential(new ArcadeDrive(-0.6, 0, 40));
         addSequential(new CameraDriveGyro());
-        addSequential(new DriveStraightForDistance(-.5, 6));
+        addSequential(new ElevatorHigh());
+        addSequential(new DriveStraightForDistance(-.5, 25));
         addSequential(new GearRelease());
         addSequential(new DelaySeconds(.5));
         //addSequential(new ArcadeDrive(0.6, 0, 24));

@@ -297,6 +297,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putBoolean("GearTrigger", oi.gearTrigger.get());
 		SmartDashboard.putBoolean("WeGrabbedTheGear", gearElevator.haveTheGear());
 		SmartDashboard.putBoolean("AutoSwitch", Robot.oi.cCI.getRawButton(1));
+		SmartDashboard.putBoolean("Gear Detector", RobotMap.gearInDetector.get());
 	}
 }
 

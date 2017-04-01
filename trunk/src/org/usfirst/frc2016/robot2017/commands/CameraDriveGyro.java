@@ -79,7 +79,7 @@ public class CameraDriveGyro extends Command {
     	targetDistance = SmartDashboard.getNumber("GearAlignDistance", 1000);
     	//SmartDashboard.putNumber("Distance", targetDistance);
     	if (targetDistance < 10*12) {
-    		returnCode = targetDistance < 10;
+    		returnCode = targetDistance < 20;
     	}
         return returnCode; //|| waitCounter*DELAYPERCOUNT > 5;
         }
