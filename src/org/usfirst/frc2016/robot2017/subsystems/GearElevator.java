@@ -230,7 +230,9 @@ public class GearElevator extends Subsystem {
         		joyY = 0;
         	}
         	double position = presetPositions[HIGH]+joyY*1620/13;
-        	goTo(position);
+        	if ( !needsCalibrate) {
+        		goTo(position);
+        	}
     	}
     	}
     	public void initDefaultCommand() {

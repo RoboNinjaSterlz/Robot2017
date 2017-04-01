@@ -58,7 +58,7 @@ public class AutoStraightGearBaseline extends CommandGroup {
         addSequential(new CameraDriveGyro());
         addSequential(new ElevatorHigh());
 
-        addSequential(new DriveStraightForDistance(-.5, 25));
+        addSequential(new DriveStraightForDistance(-.5, 28));
         addSequential(new GearRelease());
         addSequential(new DelaySeconds(1));
         addSequential(new ArcadeDrive(0.6, 0, 28));
