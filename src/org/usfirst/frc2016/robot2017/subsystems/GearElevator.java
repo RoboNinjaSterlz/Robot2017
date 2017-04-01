@@ -104,10 +104,11 @@ public class GearElevator extends Subsystem {
 		gearElevatorTalon.setPosition(0);
 		gearElevatorTalon.changeControlMode(TalonControlMode.Position);
 		// reset the encoder
-		gearElevatorTalon.set(0);
+		gearElevatorTalon.set(presetPositions[PREPICKUP]);
 //		gearElevatorTalon.reverseSensor(false);
 //		gearElevatorTalon.reverseOutput(true);
 		gearElevatorTalon.enable();
+		lastPreset=PREPICKUP;
 		needsCalibrate = false;
     }
     
