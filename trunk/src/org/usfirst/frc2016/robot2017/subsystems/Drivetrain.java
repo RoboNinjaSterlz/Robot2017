@@ -78,6 +78,26 @@ public class Drivetrain extends Subsystem {
     	robotDrive.arcadeDrive(joy, true);
     }
     
+    public void arcadeDrive(Joystick leftJoy, Joystick rightJoy) {
+    	accumSpeed = 0;
+    	double rightY;
+    	double leftY;
+    	//if (Robot.frontCameraActive) {
+//    		rightY= adjustDriveValue(rightJoy.getY());
+    		rightY= adjustDriveValue(leftJoy.getRawAxis(4));
+    		leftY = adjustDriveValue(leftJoy.getY());
+    	//}
+    	//else {
+    	//	leftY= -adjustDriveValue(rightJoy.getY());
+    	//	rightY = -adjustDriveValue(leftJoy.getY());
+    	//}
+        // The values to pass to the motors are adjusted by the ramp method
+        leftCurrentSpeed = returnRamp(leftCurrentSpeed, leftY);
+        rightCurrentSpeed = returnRamp(rightCurrentSpeed, rightY);
+        //SmartDashboard.putNumber("LJoyY", letfY);
+        //SmartDashboard.putNumber("LCurrentSpeed", leftCurrentSpeed);
+    	robotDrive.arcadeDrive(leftCurrentSpeed, rightCurrentSpeed, true);
+    }
     public void arcadeDrive(double speed, double direction) {
 //    	robotDrive.arcadeDrive(speed, direction);
 		velocityDrive(speed, direction);
@@ -159,7 +179,8 @@ public class Drivetrain extends Subsystem {
     	double rightY;
     	double leftY;
     	//if (Robot.frontCameraActive) {
-    		rightY= adjustDriveValue(rightJoy.getY());
+//    		rightY= adjustDriveValue(rightJoy.getY());
+    		rightY= adjustDriveValue(leftJoy.getRawAxis(5));
     		leftY = adjustDriveValue(leftJoy.getY());
     	//}
     	//else {
