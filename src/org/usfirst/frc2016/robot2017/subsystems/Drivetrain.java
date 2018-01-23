@@ -73,6 +73,10 @@ public class Drivetrain extends Subsystem {
     	rightEncoder.reset();
     }
 
+    public void periodic() {
+    	Robot.currentMonitor.driveTrainCurrentReport(leftdrive.get(), rightdrive.get());
+    }
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void arcadeDrive(Joystick joy) {
