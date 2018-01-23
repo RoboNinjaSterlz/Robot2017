@@ -21,10 +21,14 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 
 
+
+
 //import com.ctre.CANTalon.FeedbackDevice;
 //import com.ctre.CANTalon.TalonControlMode;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
+import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
@@ -91,6 +95,9 @@ public class GearElevator extends Subsystem {
     	// Keep off until we are calibrated.
     	// Hard limits should protect everything.
 //    	gearElevatorTalon.enableForwardSoftLimit(false);
+    	gearElevatorTalon.configForwardLimitSwitchSource(
+    			LimitSwitchSource.FeedbackConnector,
+    			LimitSwitchNormal.NormallyOpen, 0);
     	gearElevatorTalon.configForwardSoftLimitEnable(false, 0);
 //    	gearElevatorTalon.enableReverseSoftLimit(false);
     	gearElevatorTalon.configReverseSoftLimitEnable(false, 0);
@@ -147,7 +154,7 @@ public class GearElevator extends Subsystem {
 
     	// Returns true if the GearElevator is in the home position
     	public boolean isElevatorAtHome() {
-        	return (gearElevatorTalon.getSensorCollection().isFwdLimitSwitchClosed());
+        	return (gearElevatorTalon.getSensorCollection().isRevLimitSwitchClosed());
         }
 
     	// Goes to the encoder count that is passed
